@@ -51,5 +51,15 @@ public class App {
 
             return new ModelAndView(model,"hero.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //details of individual hero
+        get("heroes/:id" ,(request, response) -> {
+            Map<String,Object> model = new HashMap<String, Object>();
+            int idHero = Integer.parseInt(request.params(":id"));
+            Hero heroStats = Hero.findById(idHero);
+            model.put("hero",heroStats);
+
+            return new ModelAndView(model,"hero-detail.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
