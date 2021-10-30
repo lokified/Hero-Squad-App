@@ -1,0 +1,16 @@
+{{#partial "content"}}
+
+    <h1>This is a view of your heroes</h1>
+
+    {{#each hero}}
+        <div>
+            <p>Name: {{name}}</p>
+            <p>Age: {{age}}</p>
+            <p>Special Powers: {{specialPower}}</p>
+            <p>Weakness: {{weakness}}</p>
+        </div>
+    {{/each}}
+
+{{/partial}}
+
+{{> layout.hbs}}

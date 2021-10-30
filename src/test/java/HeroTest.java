@@ -41,6 +41,14 @@ public class HeroTest {
         assertEquals(false,testHero.isPublished());
     }
 
+    @Test
+    public void getAll_returnsAllInstancesOfHero_true() {
+        Hero firstHero = new Hero("Ben10",10,"transformation","family");
+        Hero secondHero = new Hero("Batman",40,"strength","people");
+        assertTrue(Hero.getAll().contains(firstHero));
+        assertTrue(Hero.getAll().contains(secondHero));
+    }
+
     public Hero newHero(){
         return new Hero("makmende",30,"water bender","fire");
     }
