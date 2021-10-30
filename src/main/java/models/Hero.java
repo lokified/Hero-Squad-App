@@ -1,4 +1,7 @@
 package models;
+
+import java.util.ArrayList;
+
 public class Hero {
 
     private String name;
@@ -6,6 +9,8 @@ public class Hero {
     private String specialPower;
     private String weakness;
     private boolean published;
+    private static ArrayList<Hero> instances = new ArrayList<Hero>();
+    private int id;
 
     public Hero(String name, int age, String specialPower, String weakness) {
         this.name = name;
@@ -13,6 +18,24 @@ public class Hero {
         this.specialPower = specialPower;
         this.weakness = weakness;
         this.published = false;
+        instances.add(this);
+        this.id = instances.size();
+    }
+
+    public static ArrayList<Hero> getAll() {
+        return instances;
+    }
+
+    public static void clearAllHeroes(){
+        instances.clear();
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public static Hero findById(int id) {
+        return instances.get(id - 1);
     }
 
     public boolean isPublished() {

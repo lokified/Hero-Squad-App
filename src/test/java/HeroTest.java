@@ -49,7 +49,31 @@ public class HeroTest {
         assertTrue(Hero.getAll().contains(secondHero));
     }
 
+    @Test
+    public void getId_HeroInstantiateWithId_1() {
+        Hero.clearAllHeroes();
+        Hero testHero = newHero();
+        assertEquals(1,testHero.getId());
+    }
+
+    @Test
+    public void findReturnsCorrectHero() {
+        Hero.clearAllHeroes();
+        Hero testHero = newHero();
+        assertEquals(1,Hero.findById(testHero.getId()).getId());
+    }
+
+    @Test
+    public void findReturnsCorrectHero_2() {
+        Hero.clearAllHeroes();
+        Hero testHero = newHero();
+        Hero secondTestHero = new Hero("Ben10",10,"transformation","family");
+        assertEquals(2,Hero.findById(secondTestHero.getId()).getId());
+    }
+
     public Hero newHero(){
         return new Hero("makmende",30,"water bender","fire");
     }
+
+
 }
