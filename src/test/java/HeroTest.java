@@ -1,3 +1,4 @@
+import models.Hero;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -32,6 +33,12 @@ public class HeroTest {
     public void HeroInstantiatesCorrectlyWithWeakness_true() {
         Hero testHero = newHero();
         assertEquals("fire",testHero.getWeakness());
+    }
+
+    @Test
+    public void isPublishedIFalseAfterInstantiation_false() {
+        Hero testHero = newHero();
+        assertEquals(false,testHero.isPublished());
     }
 
     public Hero newHero(){
