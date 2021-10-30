@@ -1,12 +1,12 @@
 public class Squad {
 
     private String name;
-    private int numberOfHeros;
+    private int maxNumberOfHeros;
     private String mission;
 
-    public Squad(String name, int numberOfHeros, String mission) {
+    public Squad(String name, int maxNumberOfHeros, String mission) {
         this.name = name;
-        this.numberOfHeros = numberOfHeros;
+        this.maxNumberOfHeros = maxNumberOfHeros;
         this.mission = mission;
     }
 
@@ -18,12 +18,12 @@ public class Squad {
         this.name = name;
     }
 
-    public int getNumberOfHeros() {
-        return numberOfHeros;
+    public int getMaxNumberOfHeros() {
+        return maxNumberOfHeros;
     }
 
-    public void setNumberOfHeros(int numberOfHeros) {
-        this.numberOfHeros = numberOfHeros;
+    public void setMaxNumberOfHeros(int maxNumberOfHeros) {
+        this.maxNumberOfHeros = maxNumberOfHeros;
     }
 
     public String getMission() {
