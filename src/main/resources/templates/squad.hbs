@@ -1,0 +1,18 @@
+{{#partial "content"}}
+    <h1>Your Squad </h1>
+
+    {{#each squad}}
+        <div>
+            <p>Name: {{name}}</p>
+            <p>Number of heroes: {{maxNumberOfHeros}}</p>
+            <p>Mission: {{mission}}</p>
+
+
+            <button><a href="/squad-detail/{{id}}">View My Squad</a></button>
+            <button><a href="/form-squad">Add a Squad</a></button>
+        </div>
+        {{/each}}
+
+{{/partial}}
+
+{{> layout.hbs}}
