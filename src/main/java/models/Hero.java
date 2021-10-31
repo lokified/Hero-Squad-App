@@ -26,7 +26,7 @@ public class Hero {
         return instances;
     }
 
-    public static void clearAllHeroes(){
+    public  static void  clearAllHeroes(){
         instances.clear();
     }
 
@@ -34,17 +34,14 @@ public class Hero {
         return id;
     }
 
-    public static Hero findById(int id) {
-        return instances.get(id - 1);
+    public void setId(int id) {
+        this.id = id;
     }
 
     public boolean isPublished() {
         return published;
     }
 
-    public void setPublished(boolean published) {
-        this.published = published;
-    }
 
     public String getName() {
         return name;
@@ -77,4 +74,10 @@ public class Hero {
     public void setWeakness(String weakness) {
         this.weakness = weakness;
     }
+
+    public static Hero findById(int id){
+        return instances.get(id - 1);
+    }
+
+
 }

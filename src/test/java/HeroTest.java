@@ -42,34 +42,22 @@ public class HeroTest {
     }
 
     @Test
-    public void getAll_returnsAllInstancesOfHero_true() {
-        Hero firstHero = new Hero("Ben10",10,"transformation","family");
-        Hero secondHero = new Hero("Batman",40,"strength","people");
-        assertTrue(Hero.getAll().contains(firstHero));
-        assertTrue(Hero.getAll().contains(secondHero));
+    public void newHero_getAllInstances_true() {
+        Hero newHero = newHero();
+        Hero another = new Hero("ben 10",10,"transformation","family");
+        assertTrue(Hero.getAll().contains(newHero));
+        assertTrue(Hero.getAll().contains(another));
     }
 
     @Test
-    public void getId_HeroInstantiateWithId_1() {
+    public void newHero_getId_Int() {
         Hero.clearAllHeroes();
-        Hero testHero = newHero();
-        assertEquals(1,testHero.getId());
+        Hero newHero = newHero();
+        Hero another = new Hero("ben 10",10,"transformation","family");
+        Hero another1 = new Hero("TMNT",15,"flying","world");
+        assertEquals(3,another1.getId());
     }
 
-    @Test
-    public void findReturnsCorrectHero() {
-        Hero.clearAllHeroes();
-        Hero testHero = newHero();
-        assertEquals(1,Hero.findById(testHero.getId()).getId());
-    }
-
-    @Test
-    public void findReturnsCorrectHero_2() {
-        Hero.clearAllHeroes();
-        Hero testHero = newHero();
-        Hero secondTestHero = new Hero("Ben10",10,"transformation","family");
-        assertEquals(2,Hero.findById(secondTestHero.getId()).getId());
-    }
 
     public Hero newHero(){
         return new Hero("makmende",30,"water bender","fire");
