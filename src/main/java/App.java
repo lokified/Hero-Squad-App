@@ -1,5 +1,7 @@
 import models.Hero;
 import static spark.Spark.*;
+
+import models.Squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -61,5 +63,43 @@ public class App {
 
             return new ModelAndView(model,"hero-detail.hbs");
         }, new HandlebarsTemplateEngine());
+
+
+
+        //show squad
+        get("/squad",(request, response) -> {
+            Map<String,Object> model = new HashMap<String, Object>();
+            ArrayList<Squad> mySquad = Squad.getAllSquad();
+            model.put("squad",mySquad);
+            return new ModelAndView(model,"squad.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        //show form to add squad
+        get("/form-squad",(request, response) -> {
+            Map<String,Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model,"squad-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
+        //process squad form
+        post("/form-squad/new",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+
+            String nameSquad= request.queryParams("name-squad");
+            int number = Integer.parseInt(request.queryParams("number"));
+            String mission = request.queryParams("mission");
+
+            Squad newSquad = new Squad(nameSquad,number,mission);
+            model.put("squad",newSquad);
+
+            return new ModelAndView(model,"success-squad.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
+
+
     }
 }

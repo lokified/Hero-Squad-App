@@ -1,3 +1,4 @@
+import models.Squad;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -29,6 +30,15 @@ public class SquadTest {
 
         Squad testSquad = newSquad();
         assertEquals("to save the world",testSquad.getMission());
+    }
+
+    @Test
+    public void getAllSquad_returnsAllInstancesOfSquad_true(){
+
+        Squad firstTestSquad = new Squad("PowerPuff",3,"save children");
+        Squad secondTestSquad = new Squad("Avengers",10,"save the world from Thanos");
+        assertTrue(Squad.getAllSquad().contains(firstTestSquad));
+        assertTrue(Squad.getAllSquad().contains(secondTestSquad));
     }
 
     public Squad newSquad(){
