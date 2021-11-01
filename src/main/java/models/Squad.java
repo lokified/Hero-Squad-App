@@ -15,6 +15,15 @@ public class Squad {
         this.maxNumberOfHeros = maxNumberOfHeros;
         this.mission = mission;
         instances.add(this);
+        this.id = instances.size();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -43,5 +52,9 @@ public class Squad {
 
     public static ArrayList<Squad> getAllSquad(){
         return instances;
+    }
+
+    public  static Squad findById(int id) {
+        return instances.get(id - 1);
     }
 }

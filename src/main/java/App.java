@@ -50,7 +50,8 @@ public class App {
             String weakness = request.queryParams("weakness");
 
             Hero newHero = new Hero(name,age,powers,weakness);
-            model.put("heroes",newHero);
+            request.session().attribute("newHero",name);
+            model.put("heroes",request.session().attribute("newHero"));
 
             return new ModelAndView(model,"success.hbs");
         }, new HandlebarsTemplateEngine());
@@ -108,10 +109,19 @@ public class App {
             String mission = request.queryParams("mission");
 
             Squad newSquad = new Squad(nameSquad,number,mission);
-            model.put("squad",newSquad);
+            request.session().attribute("newSquad",nameSquad);
+            model.put("squad",request.session().attribute("newSquad"));
 
             return new ModelAndView(model,"success-squad.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //show details of squad
+        get("/squad/:id",(request, response) -> {
+            Map<String,Object> model = new HashMap<String, Object>();
+            int idSquad = Integer.parseInt(request.params(":id"));
+            Squad squadMembers = Squad.findById(idSquad);
+            model.put("squadMembers",squadMembers);
+            return new ModelAndView(model,"squad-details.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }

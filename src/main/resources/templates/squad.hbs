@@ -2,16 +2,25 @@
     <h1>Your Squad </h1>
 
     {{#each squad}}
-        <div>
-            <p>Name: {{name}}</p>
-            <p>Number of heroes: {{maxNumberOfHeros}}</p>
-            <p>Mission: {{mission}}</p>
 
-
-            <button><a href="/squad-detail/{{id}}">View My Squad</a></button>
-            <button><a href="/form-squad">Add a Squad</a></button>
+        <div class="card-hero">
+            <div class="card" style="width: 18rem;">
+                <img src="/images/marvel-1.jpg" class="card-img-top" height="200">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <p>Number of heroes: {{maxNumberOfHeros}}</p>
+                    <p>Mission: {{mission}}</p>
+                    <a href="/squad/{{id}}" class="btn btn-primary">View my squad</a>
+                </div>
+            </div>
         </div>
+
         {{/each}}
+    <div class="text-center">
+        <a href="/form-squad" class="adds btn btn-primary">Add a squad</a>
+
+    </div>
+
 
 {{/partial}}
 

@@ -130,8 +130,24 @@ width : 100%;
 
 /*hero.hbs*/
 
-.myHero {
-background-color : black;
+.card-hero {
+float : left;
+padding : 10px;
+}
+.adds{
+clear : both;
+font-size : 20px;
+}
+
+.adds button {
+border : none;
+border-radius : 5px;
+background-color : blue;
+}
+
+.adds a{
+text-decoration : none;
+color : black;
 }
 
 
