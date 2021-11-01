@@ -2,15 +2,20 @@
 
     <h1>This is a view of your heroes</h1>
 
-    {{#each hero}}
-        <div>
-            <p>Name: {{name}}</p>
-            <p>Age: {{age}}</p>
-            <p>Special Powers: {{specialPower}}</p>
-            <p>Weakness: {{weakness}}</p>
-            <button><a href="/heroes/{{id}}">View My Stats</a></button>
-        </div>
-    {{/each}}
+    {{#if heroes}}
+        {{#each heroes}}
+            <div class="myHero">
+                <p>Name: {{name}}</p>
+                <p>Age: {{age}}</p>
+                <p>Special Powers: {{specialPower}}</p>
+                <p>Weakness: {{weakness}}</p>
+                <button><a href="/heroes/{{id}}">View My Stats</a></button>
+            </div>
+        {{/each}}
+    {{else}}
+        <p>No Heroes available</p>
+
+    {{/if}}
 
     <button><a href="/form">Add a hero</a></button>
 

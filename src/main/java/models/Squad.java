@@ -1,13 +1,20 @@
+package models;
+
+import java.util.ArrayList;
+
 public class Squad {
 
     private String name;
     private int maxNumberOfHeros;
     private String mission;
+    private static ArrayList<Squad> instances = new ArrayList<Squad>();
+    private int id;
 
     public Squad(String name, int maxNumberOfHeros, String mission) {
         this.name = name;
         this.maxNumberOfHeros = maxNumberOfHeros;
         this.mission = mission;
+        instances.add(this);
     }
 
     public String getName() {
@@ -32,5 +39,9 @@ public class Squad {
 
     public void setMission(String mission) {
         this.mission = mission;
+    }
+
+    public static ArrayList<Squad> getAllSquad(){
+        return instances;
     }
 }
