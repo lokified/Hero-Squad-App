@@ -55,6 +55,12 @@ public class App {
             return new ModelAndView(model,"success.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //delete all heroes
+        get("/heroes/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            Hero.clearAllHeroes();
+            return new ModelAndView(model, "success-delete.hbs");
+        }, new HandlebarsTemplateEngine());
 
         //details of individual hero
         get("heroes/:id" ,(request, response) -> {
@@ -73,7 +79,7 @@ public class App {
             int idOfHeroToDelete = Integer.parseInt(req.params("id")); //pull id - must match route segment
             Hero deleteHero = Hero.findById(idOfHeroToDelete); //use it to find post
             deleteHero.deleteHero();
-            return new ModelAndView(model, "success.hbs");
+            return new ModelAndView(model, "success-delete.hbs");
         }, new HandlebarsTemplateEngine());
 
         //show squad

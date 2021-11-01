@@ -67,6 +67,16 @@ public class HeroTest {
         assertEquals(Hero.getAll().get(0).getId(), 2);
     }
 
+    @Test
+    public void deleteAllPostsDeletesAllPosts() throws Exception {
+
+        Hero newHero = newHero();
+        Hero otherPost = newHero();
+
+        Hero.clearAllHeroes();
+        assertEquals(0, Hero.getAll().size());
+    }
+
 
     public Hero newHero(){
         return new Hero("makmende",30,"water bender","fire");
