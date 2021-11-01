@@ -57,6 +57,15 @@ public class HeroTest {
         Hero another1 = new Hero("TMNT",15,"flying","world");
         assertEquals(3,another1.getId());
     }
+    @Test
+    public void deleteDeletesASpecificPost() throws Exception {
+        Hero.clearAllHeroes();
+        Hero newHero = newHero();
+        Hero otherPost = new Hero("IronMan",45,"gunshots","magnet");
+        newHero.deleteHero();
+        assertEquals(1, Hero.getAll().size());
+        assertEquals(Hero.getAll().get(0).getId(), 2);
+    }
 
 
     public Hero newHero(){

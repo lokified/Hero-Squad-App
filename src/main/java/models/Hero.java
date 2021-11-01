@@ -79,5 +79,8 @@ public class Hero {
         return instances.get(id - 1);
     }
 
+    public void deleteHero() {
+        instances.remove(id -1);
+    }
 
 }
