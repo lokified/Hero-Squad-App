@@ -27,6 +27,7 @@ public class App {
         staticFileLocation("/public");
 
 
+        Squad.setUpNewSquad();
 
         //shows homepage
         get("/",(request,response) -> {
@@ -67,6 +68,8 @@ public class App {
 
         get("/heroes", (request, response) -> {
             Map<String,Object> model = new HashMap<String,Object>();
+            List<Squad> allSquad  = Squad.getAllSquad();
+            model.put("squad",allSquad);
             List<Hero> myHero= Hero.getAll();
             model.put("heroes",myHero);
 
@@ -92,9 +95,6 @@ public class App {
         //process new form
         post("/form/new",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
-
-            ArrayList<Squad> mySquad = Squad.getAllSquad();
-            model.put("squad",mySquad);
 
             String name = request.queryParams("name");
             int age = Integer.parseInt(request.queryParams("age"));
@@ -139,6 +139,15 @@ public class App {
             deleteHero.deleteHero();
             return new ModelAndView(model, "success-delete.hbs");
         }, new HandlebarsTemplateEngine());
+
+
+        post("/form/squad-member",(request, response) -> {
+            Map<String,Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model, "success-member.hbs");
+
+        }, new HandlebarsTemplateEngine());
+
+
 
         //show squad
         get("/squad",(request, response) -> {

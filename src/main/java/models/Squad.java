@@ -54,4 +54,6 @@ public class Squad {
         return instances;
     }
 
+    public static Squad setUpNewSquad(){return new Squad("Avengers",5,"Infinity Stone");}
+
 }
