@@ -80,7 +80,7 @@
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>0.4.4</version>
                 <configuration>
-                    <jdkVersion>1.8</jdkVersion>
+                    <jdkVersion>11.0.12</jdkVersion>
                     <!-- Change this to YOUR application name! -->
                     <appName>hero-squad-app</appName>
                     <processTypes>
