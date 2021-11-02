@@ -1,0 +1,158 @@
+body{
+background-color : black;
+}
+
+.top-imgs{
+background : url('/images/lays.jpg');
+background-size : cover;
+background-repeat : no-repeat;
+display : flex;
+justify-content: space-around;
+height: 500px;
+}
+
+.imgs img{
+border-radius : 150px;
+border: 8px solid black;
+}
+
+.imgs a{
+font-size : 30px;
+color : black;
+text-decoration : none;
+text-align : center;
+font-weight : 900;
+}
+
+.top-imgs h1{
+color : white;
+font-size : 70px;
+}
+
+.content{
+background-color : white;
+margin : -80px, 50px, 0,50px;
+height : 500px;
+}
+
+.container{
+margin-top : -100px;
+background-color : white;
+height : 800px;
+opacity : .8;
+}
+
+/*  index.hbs template  */
+
+.creates a {
+text-decoration : none;
+color : black;
+}
+
+
+.hero,.squad{
+display : flex;
+justify-content : space-around;
+}
+
+.hero img {
+padding : 5px;
+}
+
+.hero p {
+padding : 5px;
+}
+
+.hero button {
+border : 0;
+margin-top : 50px;
+background-color : blue;
+border-radius : 10px;
+padding : 5px;
+font-size : 20px;
+}
+
+.hero div {
+text-align : center;
+}
+
+.squad img {
+padding : 5px;
+}
+
+.squad p {
+padding : 5px;
+}
+
+.squad button {
+border : 0;
+margin-top : 80px;
+background-color : blue;
+border-radius : 10px;
+padding : 5px;
+font-size : 20px;
+}
+
+.squad div {
+text-align : center;
+}
+
+
+
+
+
+/*Hero form.hbs*/
+
+.hero-form {
+border : 1px solid grey;
+margin : 0 30%;
+padding : 10px;
+}
+
+.hero-form h1{
+padding-bottom : 40px;
+text-align : center;
+}
+
+.hero-form label {
+padding-top : 10px;
+}
+
+.hero-form input {
+border : none;
+border-bottom : 2px solid black;
+width : 100%
+}
+
+.hero-form button {
+width : 100%;
+}
+
+/*hero.hbs*/
+
+.card-hero {
+float : left;
+padding : 10px;
+}
+.adds{
+clear : both;
+font-size : 20px;
+}
+
+.adds button {
+border : none;
+border-radius : 5px;
+background-color : blue;
+}
+
+.adds a{
+text-decoration : none;
+color : black;
+}
+
+
+
+
+
+
+

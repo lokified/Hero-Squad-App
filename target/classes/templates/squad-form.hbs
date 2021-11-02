@@ -1,0 +1,18 @@
+{{#partial "content"}}
+    <h1 class="text-center">Create Your Squad</h1>
+    <div class="hero-form">
+        <form action="/form-squad/new" method="post">
+            <label for="name-squad">Input your squad's name</label><br>
+            <input id="name-squad" name="name-squad"><br>
+            <label for="number">Input maximum number of heroes</label><br>
+            <input id="number" name="number"><br>
+            <label for="mission">Input squad's mission</label><br>
+            <input id="mission" name="mission"><br>
+
+            <button class="btn btn-success btn-sm mt-3" type="submit">Create</button>
+        </form>
+    </div>
+
+{{/partial}}
+
+{{> layout.hbs}}

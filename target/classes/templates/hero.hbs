@@ -1,0 +1,35 @@
+{{#partial "content"}}
+
+    <h1 class="text-center">Heroes</h1>
+
+    {{#if heroes}}
+        {{#each heroes}}
+            <div class="card-hero">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/marvel-3.jpeg" class="card-img-top" height="200">
+                    <div class="card-body">
+                        <h5 class="card-title">{{name}}</h5>
+                        <p>Age: {{age}}</p>
+                        <p>Special Powers: {{specialPower}}</p>
+                        <p>Weakness: {{weakness}}</p>
+                        <a href="/heroes/{{id}}" class="btn btn-primary">View My Stats</a>
+                        <a href="/heroes/{{id}}/delete" class="btn btn-primary">Delete</a>
+                    </div>
+                </div>
+            </div>
+
+        {{/each}}
+    {{else}}
+        <p>No Heroes available</p>
+
+    {{/if}}
+
+    <div class="adds text-center">
+        <button><a href="/form">Add a hero</a></button>
+        <button><a href="/heroes/delete">Delete all</a></button>
+    </div>
+
+
+{{/partial}}
+
+{{> layout.hbs}}
