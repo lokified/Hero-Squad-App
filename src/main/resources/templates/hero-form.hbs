@@ -1,17 +1,29 @@
 {{#partial "content"}}
-
-
     <div class="hero-form">
-        <h1>Create Your Hero</h1>
+    {{#if editHero}}
+        <form action="/heroes/{{editHero.id}}/update" method="post">
+
+            <label for="name">Edit hero's name</label><br>
+            <input id="name" name="name" value="{{editHero.name}}"><br>
+            <label for="age">Edit hero's age</label><br>
+            <input id="age" name="age" value="{{editHero.age}}"><br>
+            <label for="powers">Edit hero's special powers</label><br>
+            <input id="powers" name="powers" value="{{editHero.superPower}}"><br>
+            <label for="weakness">Edit hero's weakness</label><br>
+            <input id="weakness" name="weakness" value="{{editHero.weakness}}"><br>
+
+    {{else}}
+            <h1>Create Your Hero</h1>
         <form action="/form/new" method="post">
-               <label for="name">Input your hero's name</label><br>
-                <input id="name" name="name"><br>
-                <label for="age">Input your hero's age</label><br>
-                <input id="age" name="age"><br>
-                <label for="powers">Input hero's special powers</label><br>
-                <input id="powers" name="powers"><br>
-                <label for="weakness">Input hero's weakness</label><br>
-                <input id="weakness" name="weakness"><br>
+            <label for="name">Input your hero's name</label><br>
+            <input id="name" name="name"><br>
+            <label for="age">Input your hero's age</label><br>
+            <input id="age" name="age"><br>
+            <label for="powers">Input hero's special powers</label><br>
+            <input id="powers" name="powers"><br>
+            <label for="weakness">Input hero's weakness</label><br>
+            <input id="weakness" name="weakness"><br>
+    {{/if}}
 
             <button class="btn btn-success btn-sm mt-3" type="submit">Create</button>
         </form>

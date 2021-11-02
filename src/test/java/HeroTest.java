@@ -79,6 +79,24 @@ public class HeroTest {
         assertEquals(0, Hero.getAll().size());
     }
 
+    @Test
+    public void updateChangesPostContent() throws Exception {
+        Hero testHero = newHero();
+        String formerName = testHero.getName();
+        int formerAge = testHero.getAge();
+        String formerSpecialPower = testHero.getSuperPower();
+        String formerWeakness = testHero.getWeakness();
+        int formerId = testHero.getId();
+
+        testHero.update("De Gea",29,"keeper","coach");
+
+        assertNotEquals(formerName, testHero.getName());
+        assertNotEquals(formerAge, testHero.getAge());
+        assertNotEquals(formerSpecialPower,testHero.getSuperPower());
+        assertNotEquals(formerWeakness, testHero.getWeakness());
+        assertEquals(formerId,testHero.getId());
+    }
+
 
 
 

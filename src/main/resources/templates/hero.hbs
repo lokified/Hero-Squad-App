@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{name}}</h5>
                         <p>Age: {{age}}</p>
-                        <p>Special Powers: {{specialPower}}</p>
+                        <p>Special Powers: {{superPower}}</p>
                         <p>Weakness: {{weakness}}</p>
                         {{#if squad}}
 
@@ -38,8 +38,10 @@
 
 
                         <div class="pt-4">
-                            <a href="/heroes/{{id}}" class="btn btn-primary">View My Stats</a>
-                            <a href="/heroes/{{id}}/delete" class="btn btn-primary">Delete</a>
+                            <a href="/heroes/{{id}}" class="text-success">View My Stats</a>
+                            <a href="/heroes/{{id}}/update" class="text-info">Edit this Hero</a>
+                            <a href="/heroes/{{id}}/delete" class="text-danger">Delete</a>
+
                         </div>
 
 

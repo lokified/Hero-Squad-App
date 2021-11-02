@@ -110,7 +110,6 @@ public class App {
 
 
 
-
         //delete all heroes
         get("/heroes/delete", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
@@ -128,6 +127,30 @@ public class App {
             model.put("hero",heroStats);
 
             return new ModelAndView(model,"hero-detail.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        //get: show a form to update a hero
+        get("/heroes/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfHeroToEdit = Integer.parseInt(req.params("id"));
+            Hero editHero = Hero.findById(idOfHeroToEdit);
+            model.put("editHero", editHero);
+            return new ModelAndView(model, "hero-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        post("/heroes/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newName = req.queryParams("name");
+            int newAge = Integer.parseInt(req.queryParams("age"));
+            String newPowers = req.queryParams("powers");
+            String newWeakness = req.queryParams("weakness");
+
+            int idOfHeroToEdit = Integer.parseInt(req.params("id"));
+            Hero editHero = Hero.findById(idOfHeroToEdit);
+            editHero.update(newName,newAge,newPowers,newWeakness);
+            return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
 
