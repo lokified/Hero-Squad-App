@@ -1,4 +1,5 @@
 import models.Hero;
+import models.Squad;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -26,7 +27,7 @@ public class HeroTest {
     @Test
     public void HeroInstantiatesCorrectlyWithSpecialPower_true() {
         Hero testHero = newHero();
-        assertEquals("water bender",testHero.getSpecialPower());
+        assertEquals("water bender",testHero.getSuperPower());
     }
 
     @Test
@@ -57,6 +58,7 @@ public class HeroTest {
         Hero another1 = new Hero("TMNT",15,"flying","world");
         assertEquals(3,another1.getId());
     }
+
     @Test
     public void deleteDeletesASpecificPost() throws Exception {
         Hero.clearAllHeroes();
@@ -76,6 +78,8 @@ public class HeroTest {
         Hero.clearAllHeroes();
         assertEquals(0, Hero.getAll().size());
     }
+
+
 
 
     public Hero newHero(){

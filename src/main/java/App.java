@@ -23,6 +23,34 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
+        //process squad form
+        post("/form-squad/new",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+
+            String nameSquad= request.queryParams("name-squad");
+            int number = Integer.parseInt(request.queryParams("number"));
+            String mission = request.queryParams("mission");
+
+            Squad newSquad = new Squad(nameSquad,number,mission);
+
+            return new ModelAndView(model,"success-squad.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        //process squad form
+        post("/form-squad/new",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+
+            String nameSquad= request.queryParams("name-squad");
+            int number = Integer.parseInt(request.queryParams("number"));
+            String mission = request.queryParams("mission");
+
+            Squad newSquad = new Squad(nameSquad,number,mission);
+            model.put("squad",newSquad);
+
+            return new ModelAndView(model,"success-squad.hbs");
+        }, new HandlebarsTemplateEngine());
+
         //view heroes
 
         get("/heroes", (request, response) -> {
@@ -33,6 +61,7 @@ public class App {
             return new ModelAndView(model,"hero.hbs");
         }, new HandlebarsTemplateEngine());
 
+
         //show form to add hero
         get("/form",(request, response) -> {
             Map<String,Object> model = new HashMap<String,Object>();
@@ -40,9 +69,20 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
+        //show form to add hero
+        get("/form",(request, response) -> {
+            Map<String,Object> model = new HashMap<String,Object>();
+            return new ModelAndView(model,"hero-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
         //process new form
         post("/form/new",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
+
+            ArrayList<Squad> mySquad = Squad.getAllSquad();
+            model.put("squad",mySquad);
 
             String name = request.queryParams("name");
             int age = Integer.parseInt(request.queryParams("age"));
@@ -50,11 +90,14 @@ public class App {
             String weakness = request.queryParams("weakness");
 
             Hero newHero = new Hero(name,age,powers,weakness);
-            request.session().attribute("newHero",name);
+            request.session().attribute("newHero",newHero);
             model.put("heroes",request.session().attribute("newHero"));
 
             return new ModelAndView(model,"success.hbs");
         }, new HandlebarsTemplateEngine());
+
+
+
 
         //delete all heroes
         get("/heroes/delete", (req, res) -> {
@@ -62,6 +105,8 @@ public class App {
             Hero.clearAllHeroes();
             return new ModelAndView(model, "success-delete.hbs");
         }, new HandlebarsTemplateEngine());
+
+
 
         //details of individual hero
         get("heroes/:id" ,(request, response) -> {
@@ -100,28 +145,6 @@ public class App {
 
 
 
-        //process squad form
-        post("/form-squad/new",(request, response) -> {
-            Map<String,Object> model = new HashMap<>();
 
-            String nameSquad= request.queryParams("name-squad");
-            int number = Integer.parseInt(request.queryParams("number"));
-            String mission = request.queryParams("mission");
-
-            Squad newSquad = new Squad(nameSquad,number,mission);
-            request.session().attribute("newSquad",nameSquad);
-            model.put("squad",request.session().attribute("newSquad"));
-
-            return new ModelAndView(model,"success-squad.hbs");
-        }, new HandlebarsTemplateEngine());
-
-        //show details of squad
-        get("/squad/:id",(request, response) -> {
-            Map<String,Object> model = new HashMap<String, Object>();
-            int idSquad = Integer.parseInt(request.params(":id"));
-            Squad squadMembers = Squad.findById(idSquad);
-            model.put("squadMembers",squadMembers);
-            return new ModelAndView(model,"squad-details.hbs");
-        }, new HandlebarsTemplateEngine());
     }
 }

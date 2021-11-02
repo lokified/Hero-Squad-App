@@ -1,5 +1,8 @@
+import models.Hero;
 import models.Squad;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -32,14 +35,6 @@ public class SquadTest {
         assertEquals("to save the world",testSquad.getMission());
     }
 
-    @Test
-    public void getAllSquad_returnsAllInstancesOfSquad_true(){
-
-        Squad firstTestSquad = new Squad("PowerPuff",3,"save children");
-        Squad secondTestSquad = new Squad("Avengers",10,"save the world from Thanos");
-        assertTrue(Squad.getAllSquad().contains(firstTestSquad));
-        assertTrue(Squad.getAllSquad().contains(secondTestSquad));
-    }
 
     @Test
     public void Squad_returnsCorrectlyWithId_1() {
@@ -50,9 +45,12 @@ public class SquadTest {
     }
 
     @Test
-    public void existingSquadCanBeFoundById() {
-        Squad testSquad = newSquad();
-        assertEquals(Squad.findById(testSquad.getId()),testSquad);
+    public void getAllSquad_returnsAllInstancesOfSquad_true(){
+
+        Squad firstTestSquad = new Squad("PowerPuff",3,"save children");
+        Squad secondTestSquad = new Squad("Avengers",10,"save the world from Thanos");
+        assertTrue(Squad.getAllSquad().contains(firstTestSquad));
+        assertTrue(Squad.getAllSquad().contains(secondTestSquad));
     }
 
     public Squad newSquad(){
