@@ -140,6 +140,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
+        //form to process edit hero
         post("/heroes/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             String newName = req.queryParams("name");
@@ -150,7 +151,7 @@ public class App {
             int idOfHeroToEdit = Integer.parseInt(req.params("id"));
             Hero editHero = Hero.findById(idOfHeroToEdit);
             editHero.update(newName,newAge,newPowers,newWeakness);
-            return new ModelAndView(model, "success.hbs");
+            return new ModelAndView(model, "success-update.hbs");
         }, new HandlebarsTemplateEngine());
 
 
@@ -187,7 +188,38 @@ public class App {
             return new ModelAndView(model,"squad-form.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //get: show a form to update a squad
+        get("/squad/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfSquadToEdit = Integer.parseInt(req.params("id"));
+            Squad editSquad = Squad.findById(idOfSquadToEdit);
+            model.put("editSquad", editSquad);
+            return new ModelAndView(model, "squad-form.hbs");
+        }, new HandlebarsTemplateEngine());
 
+
+        //form to process edit hero
+        post("/squad/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newName = req.queryParams("name-squad");
+            int newSize = Integer.parseInt(req.queryParams("number"));
+            String newMission = req.queryParams("mission");
+
+            int idOfSquadToEdit = Integer.parseInt(req.params("id"));
+            Squad editSquad = Squad.findById(idOfSquadToEdit);
+            editSquad.update(newName,newSize,newMission);
+            return new ModelAndView(model, "success-update.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        //delete squad
+        get("/squad/:id/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfSquadToDelete = Integer.parseInt(req.params("id"));
+            Squad deleteSquad = Squad.findById(idOfSquadToDelete);
+            deleteSquad.deleteSquad();
+            return new ModelAndView(model, "success-delete.hbs");
+        }, new HandlebarsTemplateEngine());
 
 
     }

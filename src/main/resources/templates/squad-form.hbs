@@ -1,6 +1,17 @@
 {{#partial "content"}}
     <h1 class="text-center">Create Your Squad</h1>
     <div class="hero-form">
+
+        {{#if editSquad}}
+        <form action="/squad/{{editSquad.id}}/update" method="post">
+            <label for="name-squad">Input your squad's name</label><br>
+            <input id="name-squad" name="name-squad" value="{{editSquad.name}}"><br>
+            <label for="number">Input maximum number of heroes</label><br>
+            <input id="number" name="number" value="{{editSquad.maxNumberOfHeros}}"><br>
+            <label for="mission">Input squad's mission</label><br>
+            <input id="mission" name="mission" value="{{editSquad.mission}}"><br>
+
+        {{else}}
         <form action="/form-squad/new" method="post">
             <label for="name-squad">Input your squad's name</label><br>
             <input id="name-squad" name="name-squad"><br>
@@ -8,6 +19,8 @@
             <input id="number" name="number"><br>
             <label for="mission">Input squad's mission</label><br>
             <input id="mission" name="mission"><br>
+        {{/if}}
+
 
             <button class="btn btn-success btn-sm mt-3" type="submit">Create</button>
         </form>

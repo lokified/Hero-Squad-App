@@ -54,6 +54,26 @@ public class Squad {
         return instances;
     }
 
+    public  static void  clearAllSquads(){
+        instances.clear();
+    }
+
+    public static Squad findById(int id){
+        return instances.get(id - 1);
+    }
+
+
+    public void deleteSquad() {
+        instances.remove(id -1);
+    }
+
+    public void update(String name,int size,String mission) {
+        this.name = name;
+        this.maxNumberOfHeros  = size;
+        this.mission = mission;
+    }
+
+
     public static Squad setUpNewSquad(){return new Squad("Avengers",5,"Infinity Stone");}
 
 }
