@@ -23,9 +23,20 @@
             <input id="powers" name="powers"><br>
             <label for="weakness">Input hero's weakness</label><br>
             <input id="weakness" name="weakness"><br>
+
+       <p class="text-secondary">List of squad to add to:</p>
+        <select class="custom-select" id="heroMySquad" name="heroMySquad" required>
+            {{#if squads}}
+                {{#each squads}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            {{/if}}
+
+        </select>
+        <p><a href="/form-squad">Add another squad?</a></p>
     {{/if}}
 
-            <button class="btn btn-success btn-sm mt-3" type="submit">Create</button>
+            <button class="btn btn-success btn-sm mt-3" type="submit">Create</button class="btn btn-success btn-sm mt-3">
         </form>
     </div>
 

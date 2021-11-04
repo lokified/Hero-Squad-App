@@ -12,29 +12,6 @@
                         <p>Age: {{age}}</p>
                         <p>Special Powers: {{superPower}}</p>
                         <p>Weakness: {{weakness}}</p>
-                        {{#if squad}}
-
-                            <div class="bg-primary text-white p-3">
-                                <form action="/form/squad-member" method="post">
-                                    <label for="squad">Select a squad to add:</label>
-                                    <select id="squad" name="squad">
-                                        {{#each squad}}
-                                            <option>{{name}}</option>
-                                        {{/each}}
-
-                                    </select>
-                                    <button type="submit" class="btn btn-success btn-sm">Add</button>
-                                </form>
-                                <p><a href="/form-squad" class="text-white" >Add another squad ?</a></p>
-
-                            </div>
-
-
-
-                        {{else}}
-                            <p><a href="/form-squad" >Add to a squad here</a></p>
-                        {{/if}}
-
 
 
                         <div class="pt-4">

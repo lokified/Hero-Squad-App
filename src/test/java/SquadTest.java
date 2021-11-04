@@ -88,6 +88,15 @@ public class SquadTest {
         assertEquals(formerId,testSquad.getId());
     }
 
+    @Test
+    public void addsHeroToSquad_true() {
+        Squad mySquad = newSquad();
+        Hero myHero = new Hero("Captain America", 25, "Super Strong", "girlfriend","mySquad");
+        mySquad.addHero(myHero);
+        Squad foundSquad = Squad.findById(mySquad.getId());
+        assertTrue(foundSquad.getAllheroInSquad(myHero).contains(myHero));
+    }
+
     public Squad newSquad(){
         return new Squad("TNMT",4,"to save the world");
     }

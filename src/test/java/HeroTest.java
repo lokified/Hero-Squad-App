@@ -45,7 +45,8 @@ public class HeroTest {
     @Test
     public void newHero_getAllInstances_true() {
         Hero newHero = newHero();
-        Hero another = new Hero("ben 10",10,"transformation","family");
+        Squad mySquad2 = new Squad("Power",10,"save ");
+        Hero another = new Hero("ben 10",10,"transformation","family","mySquad2");
         assertTrue(Hero.getAll().contains(newHero));
         assertTrue(Hero.getAll().contains(another));
     }
@@ -54,8 +55,10 @@ public class HeroTest {
     public void newHero_getId_Int() {
         Hero.clearAllHeroes();
         Hero newHero = newHero();
-        Hero another = new Hero("ben 10",10,"transformation","family");
-        Hero another1 = new Hero("TMNT",15,"flying","world");
+        Squad mySquad1 = new Squad("Left",5,"Kill world");
+        Squad mySquad2 = new Squad("Power",10,"save ");
+        Hero another = new Hero("ben 10",10,"transformation","family","mySquad1");
+        Hero another1 = new Hero("TMNT",15,"flying","world","mySquad2");
         assertEquals(3,another1.getId());
     }
 
@@ -63,7 +66,8 @@ public class HeroTest {
     public void deleteDeletesASpecificPost() throws Exception {
         Hero.clearAllHeroes();
         Hero newHero = newHero();
-        Hero otherPost = new Hero("IronMan",45,"gunshots","magnet");
+        Squad mySquad = new Squad("Avengers",5,"save world");
+        Hero otherPost = new Hero("IronMan",45,"gunshots","magnet","mySquad");
         newHero.deleteHero();
         assertEquals(1, Hero.getAll().size());
         assertEquals(Hero.getAll().get(0).getId(), 2);
@@ -101,7 +105,8 @@ public class HeroTest {
 
 
     public Hero newHero(){
-        return new Hero("makmende",30,"water bender","fire");
+        Squad mySquad = new Squad("Avengers",5,"save world");
+        return new Hero("makmende",30,"water bender","fire","mySquad");
     }
 
 

@@ -2,14 +2,14 @@
 
 
     <div class="alert alert-info">
-        <h1>{{name}}</h1>
-        <p>Members: {{numberOfHeroes}}</p>
-        <p>Mission: {{mission}}</p>
+        <h1>{{squads.name}}</h1>
+        <p>Members: {{squads.maxNumberOfHeros}}</p>
+        <p>Mission: {{squads.mission}}</p>
     </div>
 
     {{#each heroes}}
-        <p>{{name}}</p>
-        <p>{{age}}</p>
+        <h1>{{heroes.name}}</h1>
+        <p>{{heroes.age}}</p>
         <p>{{specialPower}}</p>
     {{/each}}
 {{/partial}}

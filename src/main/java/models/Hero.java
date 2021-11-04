@@ -12,12 +12,14 @@ public class Hero {
     private boolean published;
     private int id;
     private static ArrayList<Hero> instances = new ArrayList<Hero>();
+    private String heroMySquad;
 
-    public Hero(String name, int age, String superPower, String weakness) {
+    public Hero(String name, int age, String superPower, String weakness, String heroMySquad) {
         this.name = name;
         this.age = age;
         this.superPower = superPower;
         this.weakness = weakness;
+        this.heroMySquad = heroMySquad;
         this.published = false;
         instances.add(this);
         this.id = instances.size();
@@ -44,6 +46,13 @@ public class Hero {
         return published;
     }
 
+    public String getHeroMySquad() {
+        return heroMySquad;
+    }
+
+    public void setHeroMySquad(String heroMySquad) {
+        this.heroMySquad = heroMySquad;
+    }
 
     public String getName() {
         return name;
