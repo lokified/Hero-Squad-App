@@ -75,6 +75,8 @@ public class Squad {
         this.maxNumberOfHeros  = size;
         this.mission = mission;
     }
+
+
     public void addHero(Hero hero) {
         if (heroes.size() < this.getMaxNumberOfHeros()) {
             heroes.add(hero);

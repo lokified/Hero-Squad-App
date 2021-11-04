@@ -91,10 +91,9 @@ public class SquadTest {
     @Test
     public void addsHeroToSquad_true() {
         Squad mySquad = newSquad();
-        Hero myHero = new Hero("Captain America", 25, "Super Strong", "girlfriend","mySquad");
+        Hero myHero = new Hero("Captain America", 25, "Super Strong", "girlfriend","TNMT");
         mySquad.addHero(myHero);
-        Squad foundSquad = Squad.findById(mySquad.getId());
-        assertTrue(foundSquad.getAllheroInSquad(myHero).contains(myHero));
+        assertEquals(mySquad.getName(),myHero.getHeroMySquad());
     }
 
     public Squad newSquad(){
